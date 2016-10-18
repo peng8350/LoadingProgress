@@ -1,9 +1,11 @@
 package com.peng.progress.base;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import com.facebook.drawee.drawable.ProgressBarDrawable;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
@@ -99,6 +101,10 @@ public abstract class BaseProgress extends ProgressBarDrawable {
     public void setTextColor(int mTextColor) {
         mTextPaint.setColor(mTextColor);
         this.mTextColor = mTextColor;
+    }
+
+    public void setTextColorRes(@ColorRes int ColorRes,Context context){
+        mTextPaint.setColor(context.getResources().getColor(ColorRes));
     }
 
     public void setTextShow(boolean mTextShow) {
