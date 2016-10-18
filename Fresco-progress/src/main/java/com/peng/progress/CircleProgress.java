@@ -1,25 +1,27 @@
 package com.peng.progress;
 
 import android.graphics.*;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import com.peng.progress.base.BaseBuilder;
 import com.peng.progress.base.BaseProgress;
 
 /**
  * Created by peng on 16-10-18.
+ * The CircleProgress class
+ * extends BaseProgress
  */
 public class CircleProgress extends BaseProgress {
 
-
-    //园环的画笔
+    //The Paint of the Ring
     private Paint mRingPaint;
-    //园环的大小
+    //The Size of the Ring
     private float mRingWidth;
-    //园环加载中进度颜色
+    //The progress Color for the Ring
     private int mRingProgressColor;
-    //园环加载的底部颜色
+    //The bottom color for the Ring
     private int mRingBottomColor;
-    //园环的半径
+    //the radius of the Ring
     private int mRingRadius;
 
 
@@ -44,6 +46,67 @@ public class CircleProgress extends BaseProgress {
     }
 
     @Override
+    public void DrawOther(Canvas canvas) {
+        drawCircle(canvas);
+        drawArc(canvas);
+    }
+
+    /*
+        draw the circle background
+     */
+    private void drawCircle(Canvas canvas) {
+        mRingPaint.setColor(mRingBottomColor);
+        mRingPaint.setStrokeWidth((float)(mRingWidth/2));
+        Rect bounds = getBounds();
+
+        int xpos = bounds.left + bounds.width() / 2;
+        int ypos = bounds.bottom - bounds.height() / 2;
+        canvas.drawCircle(xpos, ypos, mRingRadius, mRingPaint);
+    }
+    /*
+    draw the arc for the progress
+     */
+    private void drawArc(Canvas canvas) {
+        mRingPaint.setColor(mRingProgressColor);
+        mRingPaint.setStrokeWidth(mRingWidth);
+        Rect bounds = getBounds();
+        int xpos = bounds.left + bounds.width() / 2;
+        int ypos = bounds.bottom - bounds.height() / 2;
+        RectF rectF = new RectF(xpos - mRingRadius, ypos - mRingRadius, xpos + mRingRadius,
+                ypos + mRingRadius);
+        float degree = (float) mProgress / (float) MAX_VALUE * 360;
+        canvas.drawArc(rectF, 270, degree, false, mRingPaint);
+    }
+
+
+
+    public static class Builder extends BaseBuilder<CircleProgress,Builder> {
+        public Builder() {
+            mProgress = new CircleProgress();
+        }
+
+        public Builder setRingWidth(float width){
+            mProgress.mRingWidth = width;
+            return this;
+        }
+
+        public Builder setRingRadius(int Radius){
+            mProgress.mRingRadius = Radius;
+            return this;
+        }
+
+        public Builder setRingProgressColor(@ColorInt int Color){
+            mProgress.mRingProgressColor = Color;
+            return this;
+        }
+        public Builder setRingBottomColor(@ColorInt int Color){
+            mProgress.mRingBottomColor = Color;
+            return this;
+        }
+    }
+
+
+    @Override
     public void setAlpha(int alpha) {
 
     }
@@ -56,76 +119,5 @@ public class CircleProgress extends BaseProgress {
     public int getOpacity() {
         return 0;
     }
-
-    @Override
-    public void DrawOther(Canvas canvas) {
-        drawCircle(canvas);
-        drawArc(canvas);
-    }
-
-    private void drawCircle(Canvas canvas) {
-        mRingPaint.setColor(mRingBottomColor);
-        Rect bounds = getBounds();
-        int xpos = bounds.left + bounds.width() / 2;
-        int ypos = bounds.bottom - bounds.height() / 2;
-        canvas.drawCircle(xpos, ypos, mRingRadius, mRingPaint);
-    }
-    /*
-    draw the circle
-     */
-    private void drawArc(Canvas canvas) {
-        mRingPaint.setColor(mRingProgressColor);
-        Rect bounds = getBounds();
-        int xpos = bounds.left + bounds.width() / 2;
-        int ypos = bounds.bottom - bounds.height() / 2;
-        RectF rectF = new RectF(xpos - mRingRadius, ypos - mRingRadius, xpos + mRingRadius,
-                ypos + mRingRadius);
-        float degree = (float) mProgress / (float) MAX_VALUE * 360;
-        canvas.drawArc(rectF, 270, degree, false, mRingPaint);
-    }
-
-    private void setmRingProgressColor(int mRingColor) {
-        this.mRingProgressColor = mRingColor;
-    }
-
-    private void setmRingRadius(int mRingRadius) {
-        this.mRingRadius = mRingRadius;
-    }
-
-    private void setmRingWidth(float mRingWidth) {
-        this.mRingWidth = mRingWidth;
-        mRingPaint.setStrokeWidth(mRingWidth);
-    }
-
-    public void setmRingBottomColor(int mRingBottomColor) {
-        this.mRingBottomColor = mRingBottomColor;
-    }
-
-    public static class Builder extends BaseBuilder<CircleProgress,Builder> {
-        public Builder() {
-            mProgress = new CircleProgress();
-        }
-
-        public Builder setRingWidth(float width){
-            mProgress.setmRingWidth(width);
-            return this;
-        }
-
-        public Builder setRingRadius(int Radius){
-            mProgress.setmRingRadius(Radius);
-            return this;
-        }
-
-        public Builder setRingProgressColor(int Color){
-            mProgress.setmRingProgressColor(Color);
-            return this;
-        }
-        public Builder setRingBottomColor(int Color){
-            mProgress.setmRingBottomColor(Color);
-            return this;
-        }
-    }
-
-
 
 }

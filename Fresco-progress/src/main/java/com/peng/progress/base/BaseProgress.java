@@ -11,7 +11,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * Created by peng on 16-10-18.
- * 进度条继承类
+ * The extends class of the ProgressBar
  */
 public abstract class BaseProgress extends ProgressBarDrawable {
     //初始化的最大值
@@ -105,6 +105,10 @@ public abstract class BaseProgress extends ProgressBarDrawable {
 
         this.mTextShow = mTextShow;
 
+    }
+
+    public Paint getmTextPaint() {
+        return mTextPaint;
     }
 
     public abstract void DrawOther(Canvas canvas);

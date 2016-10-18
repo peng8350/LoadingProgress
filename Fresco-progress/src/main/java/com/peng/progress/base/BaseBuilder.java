@@ -2,6 +2,7 @@ package com.peng.progress.base;
 
 /**
  * Created by peng on 16-10-18.
+ * The Father Builder to the Progress
  */
 public abstract class BaseBuilder<T extends BaseProgress,H extends BaseBuilder>{
     protected T mProgress;
