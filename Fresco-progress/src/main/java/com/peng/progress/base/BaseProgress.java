@@ -1,13 +1,10 @@
 package com.peng.progress.base;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.*;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
-import com.facebook.drawee.drawable.ProgressBarDrawable;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -15,7 +12,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
  * Created by peng on 16-10-18.
  * The extends class of the ProgressBar
  */
-public abstract class BaseProgress extends ProgressBarDrawable {
+public abstract class BaseProgress extends Drawable {
     //初始化的最大值
     public static final int MAX_VALUE = 10000;
     //进度文字大小
@@ -111,6 +108,20 @@ public abstract class BaseProgress extends ProgressBarDrawable {
 
         this.mTextShow = mTextShow;
 
+    }
+
+    @Override
+    public void setAlpha(int alpha) {
+    }
+
+    @Override
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
+
+    }
+
+    @Override
+    public int getOpacity() {
+        return 0;
     }
 
     public Paint getmTextPaint() {

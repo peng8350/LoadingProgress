@@ -1,6 +1,7 @@
 package com.peng;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -16,14 +17,14 @@ import com.peng.progress.CircleStyle;
 public class TestActivity extends Activity {
 
     SimpleDraweeView test_image;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         test_image = (SimpleDraweeView) findViewById(R.id.test_image);
         test_image.setImageURI("http://45.79.105.220:8080/images/mbuntu-11.jpg");
-
-        new CircleProgress.Builder().setCircleStyle(CircleStyle.FAN).setCircleRadius(30).build().inject(test_image);
+        new CircleProgress.Builder().setStyle(CircleStyle.FAN).setGradientColor(new int[]{Color.parseColor("#8842e7e0"), Color.parseColor("#8891ffa1")}).build().inject(test_image);
     }
 
     @Override

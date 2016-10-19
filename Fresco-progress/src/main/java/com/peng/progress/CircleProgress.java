@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.*;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.Nullable;
 import com.peng.progress.base.BaseBuilder;
 import com.peng.progress.base.BaseProgress;
 
@@ -26,8 +25,9 @@ public class CircleProgress extends BaseProgress {
     //the radius of the Ring
     private int mCircleRadius;
     //The Style of the Circle
-    private CircleStyle mCircleStyle=CircleStyle.RING;
-
+    private CircleStyle mCircleStyle = CircleStyle.RING;
+    //The linear color
+    private int[] mGradientColor;
     /*
         initCircleProgress
      */
@@ -40,9 +40,10 @@ public class CircleProgress extends BaseProgress {
         mCircleBottomColor = 0x80000000;
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCirclePaint.setStrokeWidth(10);
+        mCirclePaint.setStrokeJoin(Paint.Join.ROUND);
+
         mCircleWidth = 8;
         mCircleRadius = 40;
-
     }
 
     @Override
@@ -55,30 +56,44 @@ public class CircleProgress extends BaseProgress {
         draw the circle background
      */
     private void drawCircle(Canvas canvas) {
-        mCirclePaint.setColor(mCircleBottomColor);
-        mCirclePaint.setStrokeWidth(mCircleWidth / 2);
-        mCirclePaint.setStyle(mCircleStyle==CircleStyle.RING? Paint.Style.STROKE:Paint.Style.FILL);
-        Rect bounds = getBounds();
 
+        Rect bounds = getBounds();
         int xpos = bounds.left + bounds.width() / 2;
         int ypos = bounds.bottom - bounds.height() / 2;
-        canvas.drawCircle(xpos, ypos, mCircleStyle==CircleStyle.RING?mCircleRadius:mCircleRadius+1, mCirclePaint);
+
+
+        mCirclePaint.setColor(mCircleBottomColor);
+        mCirclePaint.setStrokeWidth(mCircleWidth / 2);
+        mCirclePaint.setStyle(mCircleStyle == CircleStyle.RING ? Paint.Style.STROKE : Paint.Style.FILL);
+        mCirclePaint.setStrokeCap(Paint.Cap.ROUND);
+        mCirclePaint.setStrokeJoin(Paint.Join.ROUND);
+        mCirclePaint.setShader(null);
+
+
+        canvas.drawCircle(xpos, ypos, mCircleStyle == CircleStyle.RING ? mCircleRadius : mCircleRadius + 1, mCirclePaint);
     }
 
     /*
     draw the arc for the progress
      */
     private void drawArc(Canvas canvas) {
-        mCirclePaint.setColor(mCircleProgressColor);
-        mCirclePaint.setStrokeWidth(mCircleWidth);
         Rect bounds = getBounds();
         int xpos = bounds.left + bounds.width() / 2;
         int ypos = bounds.bottom - bounds.height() / 2;
         RectF rectF = new RectF(xpos - mCircleRadius, ypos - mCircleRadius, xpos + mCircleRadius,
                 ypos + mCircleRadius);
         float degree = (float) mProgress / (float) MAX_VALUE * 360;
-        mCirclePaint.setStyle(mCircleStyle==CircleStyle.RING? Paint.Style.STROKE:Paint.Style.FILL);
-        canvas.drawArc(rectF, 270, degree, mCircleStyle==CircleStyle.FAN, mCirclePaint);
+
+
+        mCirclePaint.setStrokeWidth(mCircleWidth);
+        if (mGradientColor != null) {
+            mCirclePaint.setShader(new LinearGradient(bounds.centerX() , bounds.centerY() - mCircleRadius, bounds.centerX(), bounds.centerY() + mCircleRadius, mGradientColor, null, Shader.TileMode.MIRROR));
+            mCirclePaint.setColor(0xffffffff);
+        } else {
+            mCirclePaint.setColor(Color.RED);
+        }
+
+        canvas.drawArc(rectF, 270, degree, mCircleStyle == CircleStyle.FAN, mCirclePaint);
     }
 
 
@@ -98,46 +113,39 @@ public class CircleProgress extends BaseProgress {
             return this;
         }
 
-        public Builder setCircleProgressColor(@ColorInt int Color) {
+        public Builder setProgressColor(@ColorInt int Color) {
             mProgress.mCircleProgressColor = Color;
 
             return this;
         }
 
-        public Builder setCircleBottomColor(@ColorInt int Color) {
+        public Builder setBottomColor(@ColorInt int Color) {
             mProgress.mCircleBottomColor = Color;
             return this;
         }
 
-        public Builder setCircleBottomColorRes(@ColorRes int ColorRes, Context context) {
+        public Builder setBottomColorRes(@ColorRes int ColorRes, Context context) {
             mProgress.mCircleBottomColor = context.getResources().getColor(ColorRes);
             return this;
         }
 
-        public Builder setCircleProgressColorRes(@ColorRes int ColorRes, Context context) {
+        public Builder setProgressColorRes(@ColorRes int ColorRes, Context context) {
             mProgress.mCircleProgressColor = context.getResources().getColor(ColorRes);
             return this;
         }
 
-        public Builder setCircleStyle(CircleStyle style) {
+        public Builder setStyle(CircleStyle style) {
             mProgress.mCircleStyle = style;
             return this;
         }
+
+        public Builder setGradientColor(int[] colors) {
+            mProgress.mGradientColor = colors;
+            return this;
+        }
+
+
     }
 
-
-    @Override
-    public void setAlpha(int alpha) {
-
-    }
-
-    @Override
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-    }
-
-    @Override
-    public int getOpacity() {
-        return 0;
-    }
 
 }
