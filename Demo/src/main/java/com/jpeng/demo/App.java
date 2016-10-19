@@ -1,4 +1,4 @@
-package com.peng;
+package com.jpeng.demo;
 
 import android.app.Application;
 import com.facebook.drawee.backends.pipeline.Fresco;
