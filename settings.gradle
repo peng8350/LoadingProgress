@@ -1,1 +1,1 @@
-include ':Demo', ':Fresco-progress'
+include ':Demo', ':library'

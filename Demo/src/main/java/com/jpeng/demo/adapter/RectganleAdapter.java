@@ -34,7 +34,6 @@ public class RectganleAdapter extends QuickAdapter<RectLoadInfo> {
 			public void onClick(View v) {
 				// 重新加载图片
 				ImagePipeline pipeline = Fresco.getImagePipeline();
-				pipeline.evictFromDiskCache(Uri.parse(item.getUrl()));
 
 				pipeline.evictFromCache(Uri.parse(item.getUrl()));
 				image.setImageURI(item.getUrl());

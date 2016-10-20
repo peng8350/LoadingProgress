@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jpeng.demo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -17,6 +19,7 @@
         </activity>
         <activity android:name=".ui.CircleShowActivity"/>
         <activity android:name=".ui.RectShowActivity"/>
+        <activity android:name=".ui.DifferentActivity"/>
 
 
     </application>

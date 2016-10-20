@@ -31,17 +31,17 @@ public class RectShowActivity extends AppCompatActivity {
 
     private void initData() {
         mDatas = new ArrayList<>();
-        RectLoadInfo info1 = new RectLoadInfo("默认不设置的加载", "什么都不设置,默认的长方加载", "http://www.miui.com/forum.php?mod=attachment&aid=MzQ1MzI4NnwwMWM0Y2QyNHwxNDc2ODc1NjI5fDB8MzA5NzI1OQ%3D%3D&nothumb=yes");
+        RectLoadInfo info1 = new RectLoadInfo("默认不设置的加载", "什么都不设置,默认的长方加载", "http://pic.paopaoche.net/up/2015-6/201569164043.jpg");
         mDatas.add(info1);
-        RectLoadInfo info2 = new RectLoadInfo("进度条颜色变化", "可以改变进度条底部以及进度颜色", "http://www.miui.com/forum.php?mod=attachment&aid=MzQ1MzI4NnwwMWM0Y2QyNHwxNDc2ODc1NjI5fDB8MzA5NzI1OQ%3D%3D&nothumb=yes");
+        RectLoadInfo info2 = new RectLoadInfo("进度条颜色变化", "可以改变进度条底部以及进度颜色", "http://pic.paopaoche.net/up/2015-6/201569164043.jpg");
         info2.setBottomColor(0x884A96D8);
         info2.setProgressColor(0xaaA9D84A);
         mDatas.add(info2);
-        RectLoadInfo info3 = new RectLoadInfo("图片指示器", "使用图片,代替文字展示方式,一旦使用图片,文字将不会改变", "http://www.miui.com/forum.php?mod=attachment&aid=MzQ1MzI4NnwwMWM0Y2QyNHwxNDc2ODc1NjI5fDB8MzA5NzI1OQ%3D%3D&nothumb=yes");
+        RectLoadInfo info3 = new RectLoadInfo("图片指示器", "使用图片,代替文字展示方式,一旦使用图片,文字将不会改变", "http://pic.paopaoche.net/up/2015-6/201569164043.jpg");
         info3.setProgress_image(BitmapFactory.decodeResource(getResources(),R.drawable.plane));
         mDatas.add(info3);
 
-        RectLoadInfo info4 = new RectLoadInfo("指示器位置改变", "文字和图片可以改变适当的位置,上,中，下", "http://www.miui.com/forum.php?mod=attachment&aid=MzQ1MzI4NnwwMWM0Y2QyNHwxNDc2ODc1NjI5fDB8MzA5NzI1OQ%3D%3D&nothumb=yes");
+        RectLoadInfo info4 = new RectLoadInfo("指示器位置改变", "文字和图片可以改变适当的位置,上,中，下", "http://pic.paopaoche.net/up/2015-6/201569164043.jpg");
         info4.setProgress_image(BitmapFactory.decodeResource(getResources(),R.drawable.plane));
         info4.setPosition(RectangleProgress.TOP);
         mDatas.add(info4);

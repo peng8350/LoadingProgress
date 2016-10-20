@@ -23,19 +23,20 @@ public class CIrcleAdapter extends QuickAdapter<CircleLoadInfo> {
 		super(context, layoutResId, data);
 	}
 
+
+
 	@Override
 	protected void convert(BaseAdapterHelper helper, final CircleLoadInfo item) {
 		helper.setText(R.id.item_list_title, item.getName());
 		helper.setText(R.id.item_list_intro, item.getIntro());
 		final SimpleDraweeView image = helper.getView(R.id.item_list_image);
-		image.setImageURI(item.getUrl());
+		image.setImageURI( item.getUrl() );
 		generateProgress(item, image);
 		helper.setOnClickListener(R.id.item_list_retry, new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// 重新加载图片
 				ImagePipeline pipeline = Fresco.getImagePipeline();
-				pipeline.evictFromDiskCache(Uri.parse(item.getUrl()));
 
 				pipeline.evictFromCache(Uri.parse(item.getUrl()));
 				image.setImageURI(item.getUrl());
