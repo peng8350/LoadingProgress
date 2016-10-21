@@ -3,9 +3,23 @@
 Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。<br>
 ###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/origin/README_CN.md)
 # Design sketch
-  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  
+  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  <br>
   
-  
+  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show1.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show2.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show3.gif) <br>
+ 
+   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show4.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show5.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show6.gif) <br>
+  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show7.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show8.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show9.gif) <br>
+# install
+    
+  ```Java
+ 	 compile 'com.jpeng:LoadingProgress:1.0.1'
+  ```
 # major function:
   1.Can dynamically change the progress of text size, color, can visiable。
   
