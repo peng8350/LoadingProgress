@@ -1,6 +1,6 @@
 # LoadingProgress
  When you want to load a picture from the network, you may use the progress bar to display the progress of the picture,This project uses the Drawable injection, support Fresco, UIL, GLIDE, Picasso
-Four picture frames,Dumplites of [Fresco](https://github.com/search?utf8=%E2%9C%93&q=fresco)。<br>
+Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。<br>
 ###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/origin/README_CN.md)
 # Design sketch
   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  
