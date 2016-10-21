@@ -2,7 +2,23 @@
  当你想从网络中加载一张图片时,你可能会用到进度条来显示加载图片的进度,本项目采用Drawable注入式,支持Fresco,UIL,GLIDE,Picasso
   四大图片框架,参考了[Fresco](https://github.com/facebook/fresco)。
 # 效果图
-  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  
+  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)   <br>
+  
+  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show1.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show2.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show3.gif) <br>
+ 
+   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show4.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show5.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show6.gif) <br>
+  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show7.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show8.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show9.gif) <br>
+# 编译安装
+    
+  ```Java
+ 	 compile 'com.jpeng:LoadingProgress:1.0.1'
+  ```
   
   
 # 主要功能:
