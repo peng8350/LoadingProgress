@@ -14,10 +14,10 @@ import java.io.IOException;
 class ProgressResponseBody extends ResponseBody {
 
     private final ResponseBody responseBody;
-    private final GlideProgressListener glideProgressListener;
+    private final ProgressListener glideProgressListener;
     private BufferedSource bufferedSource;
 
-    public ProgressResponseBody(ResponseBody responseBody, GlideProgressListener glideProgressListener) {
+    public ProgressResponseBody(ResponseBody responseBody, ProgressListener glideProgressListener) {
         this.responseBody = responseBody;
         this.glideProgressListener = glideProgressListener;
     }

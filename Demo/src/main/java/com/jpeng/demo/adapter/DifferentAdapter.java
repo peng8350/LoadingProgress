@@ -137,7 +137,7 @@ public class DifferentAdapter extends QuickAdapter<DifferentInfo> {
 				}
 			})).load(info.getUrl()).into(imageView);
 		} else {
-			image().bind(imageView, info.getUrl(), new Callback.CommonCallback<Drawable>() {
+    			image().bind(imageView, info.getUrl(), new Callback.CommonCallback<Drawable>() {
 				@Override
 				public void onSuccess(Drawable result) {
 

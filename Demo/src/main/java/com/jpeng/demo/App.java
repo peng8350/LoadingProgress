@@ -3,6 +3,7 @@ package com.jpeng.demo;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -14,22 +15,25 @@ import org.xutils.x;
  */
 public class App extends Application {
 
-    public static Context context;
-    @Override
-    public void onCreate() {
-        super.onCreate();
+	public static Context context;
 
-        context = this;
-        x.Ext.init(this);
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .threadPriority(Thread.NORM_PRIORITY - 2)
-                .denyCacheImageMultipleSizesInMemory()
-                .discCacheFileNameGenerator(new Md5FileNameGenerator())
-                .tasksProcessingOrder(QueueProcessingType.LIFO)
-                .build();
+	@Override
+	public void onCreate() {
+		super.onCreate();
 
-        //Initialize ImageLoader with configuration.
-        ImageLoader.getInstance().init(config);
-        Fresco.initialize(this);
-    }
+		context = this;
+		x.Ext.init(this);
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+				.threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
+				.discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO)
+				.build();
+
+		// Initialize ImageLoader with configuration.
+		ImageLoader.getInstance().init(config);
+        ImagePipelineConfig config1 = ImagePipelineConfig.newBuilder(this).setResizeAndRotateEnabledForNetwork(true)
+				.setDownsampleEnabled(true)
+				.build();
+
+		Fresco.initialize(this, config1);
+	}
 }

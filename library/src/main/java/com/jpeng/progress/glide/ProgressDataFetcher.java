@@ -32,7 +32,7 @@ public class ProgressDataFetcher implements DataFetcher<InputStream> {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-        final GlideProgressListener glideProgressListener = new GlideProgressListener() {
+        final ProgressListener glideProgressListener = new ProgressListener() {
 
             @Override
             public void update(long bytesRead, long contentLength, boolean done) {

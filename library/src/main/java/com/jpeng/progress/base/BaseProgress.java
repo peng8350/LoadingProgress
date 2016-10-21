@@ -17,17 +17,17 @@ import java.util.List;
  * Created by peng on 16-10-18. The extends class of the ProgressBar
  */
 public abstract class BaseProgress extends Drawable {
-	// 初始化的最大值
+	// init Max value is 10000
     protected long mMaxValue=10000;
-	// 进度文字大小
+	// The size of text
 	private int				mTextSize;
-	// 进度文字颜色
+	// The color of text
 	private int				mTextColor;
-	// 是否显示进度文字
+	// THe visiable of text
 	private boolean			mTextShow;
-	// 文字的画笔
+	// The paint of text
 	private Paint			mTextPaint;
-	// 进度值
+	// The Progress Value
 	protected long			mProgress;
 	// target ImageVIew
 	private ImageView		mTarget;
@@ -41,7 +41,7 @@ public abstract class BaseProgress extends Drawable {
 	}
 
 	/*
-	 * 初始化默认属性
+	 * init the default Property
 	 */
 	public void initProperty() {
 		mTextPaint = new Paint();
@@ -56,7 +56,7 @@ public abstract class BaseProgress extends Drawable {
 
 	@Override
 	public void draw(Canvas canvas) {
-		// 判断是否显示,然后才画文字到中央
+		// if progress = 0 ,not show
 		 if (mProgress == 0)
 		 return;
 		DrawOther(canvas);
@@ -66,7 +66,7 @@ public abstract class BaseProgress extends Drawable {
 	}
 
 	/**
-	 * 画文字
+	 * draw text on the center of the canvas
 	 *
 	 * @param canvas
 	 *            画布
@@ -81,7 +81,7 @@ public abstract class BaseProgress extends Drawable {
 	}
 
 	/**
-	 * The method will add this object to the imageview And it will in the top
+	 * The method will add this progress to the imageview And it will in the top
 	 * of the imageview
 	 */
 	public void AddToImageView(boolean haveDrawable) {
@@ -118,7 +118,7 @@ public abstract class BaseProgress extends Drawable {
 	}
 
 	/**
-	 * 注入Fresco里面的Simpledraweeview
+	 * inject into the Fresco of the Simpledraweeview
 	 */
 	public void inject(@NonNull SimpleDraweeView draweeView) {
 		GenericDraweeHierarchy hierarchy = draweeView.getHierarchy();
@@ -126,7 +126,7 @@ public abstract class BaseProgress extends Drawable {
 	}
 
 	/*
-	 * 注入ImageView
+	 * inject into ImageView
 	 */
 	public void inject(@NonNull ImageView imageView) {
 		mTarget = imageView;

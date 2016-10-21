@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 /**
  * Created by peng on 16-10-18. The Father Builder to the Progress
+ * The public father class Builder
  */
 public abstract class BaseBuilder<T extends BaseProgress, H extends BaseBuilder> {
 	protected T mProgress;

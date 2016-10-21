@@ -38,5 +38,5 @@ publish {
     artifactId = 'LoadingProgress'//项目名称
     publishVersion = '1.0.0'//版本号
     desc = 'This is the library,you may load image with progressbar from net'
-    website = 'https://github.com/peng8350/FrescoProgress'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
+    website = 'https://github.com/peng8350/LoadingProgress'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }

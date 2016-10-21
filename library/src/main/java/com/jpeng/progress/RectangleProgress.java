@@ -13,7 +13,7 @@ import android.support.annotation.ColorInt;
  * Created by peng on 16-10-18.
  */
 public class RectangleProgress extends BaseProgress {
-
+	// Position
 	public static final int	CENTER				= 0;
 
 	public static final int	TOP					= 1;
@@ -68,20 +68,15 @@ public class RectangleProgress extends BaseProgress {
 	/*
 	 * draw text from Super
 	 */
-
 	@Override
 	public void DrawText(Canvas canvas) {
 		Rect size = getBounds();
 		if (mBitmap == null) {
 
-
-
-
-
 			Paint.FontMetricsInt fontMetrics = getmTextPaint().getFontMetricsInt();
 			int baseline = size.top + (size.bottom - size.top - fontMetrics.bottom + fontMetrics.top) / 2
 					- fontMetrics.top;
-			canvas.drawText((int)((double)((double)mProgress/(double)mMaxValue)*100)  + "%",
+			canvas.drawText((int) ((double) ((double) mProgress / (double) mMaxValue) * 100) + "%",
 					(float) ((size.width() - size.width() / 5) * (double) ((double) mProgress / (double) mMaxValue))
 							+ size.width() / 10 + 15,
 					mPosition == CENTER ? baseline

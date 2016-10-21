@@ -38,11 +38,11 @@ public class RectShowActivity extends AppCompatActivity {
         info2.setProgressColor(0xaaA9D84A);
         mDatas.add(info2);
         RectLoadInfo info3 = new RectLoadInfo("图片指示器", "使用图片,代替文字展示方式,一旦使用图片,文字将不会改变", "http://pic.paopaoche.net/up/2015-6/201569164043.jpg");
-        info3.setProgress_image(BitmapFactory.decodeResource(getResources(),R.drawable.plane));
+        info3.setProgress_image(BitmapFactory.decodeResource(getResources(),R.mipmap.plane));
         mDatas.add(info3);
 
         RectLoadInfo info4 = new RectLoadInfo("指示器位置改变", "文字和图片可以改变适当的位置,上,中，下", "http://pic.paopaoche.net/up/2015-6/201569164043.jpg");
-        info4.setProgress_image(BitmapFactory.decodeResource(getResources(),R.drawable.plane));
+        info4.setProgress_image(BitmapFactory.decodeResource(getResources(),R.mipmap.plane));
         info4.setPosition(RectangleProgress.TOP);
         mDatas.add(info4);
         mListView.setAdapter(new RectganleAdapter(this, R.layout.item_list, mDatas));
