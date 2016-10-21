@@ -20,7 +20,6 @@ import java.util.List;
 public class RectShowActivity extends AppCompatActivity {
     private List<RectLoadInfo> mDatas;
     private ListView mListView;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

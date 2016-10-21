@@ -27,7 +27,7 @@ android {
 dependencies {
     provided 'com.github.bumptech.glide:glide:3.7.0'
     provided 'com.facebook.fresco:fresco:0.14.1'
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    provided 'com.squareup.okhttp3:okhttp:3.4.1'
     provided 'com.squareup.picasso:picasso:2.5.3-SNAPSHOT'
 }
 
