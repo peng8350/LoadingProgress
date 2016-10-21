@@ -1,6 +1,6 @@
 # 加载进度条
  当你想从网络中加载一张图片时,你可能会用到进度条来显示加载图片的进度,本项目采用Drawable注入式,支持Fresco,UIL,GLIDE,Picasso
-  四大图片框架,参考了[Fresco](https://github.com/search?utf8=%E2%9C%93&q=fresco)。
+  四大图片框架,参考了[Fresco](https://github.com/facebook/fresco)。
 # 效果图
   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  
   
