@@ -1,4 +1,4 @@
-package com.jpeng.progress.glide;
+package com.jpeng.demo.glide;
 
 import android.content.Context;
 import android.os.Handler;

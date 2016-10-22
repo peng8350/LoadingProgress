@@ -79,6 +79,6 @@ public class CIrcleAdapter extends QuickAdapter<CircleLoadInfo> {
 		if (item.getTextSize() != 0) {
 			builder.setTextSize(item.getTextSize());
 		}
-		builder.build().inject(image);
+		builder.build().injectFresco(image);
 	}
 }

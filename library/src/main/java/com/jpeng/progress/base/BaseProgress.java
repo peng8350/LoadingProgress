@@ -57,8 +57,9 @@ public abstract class BaseProgress extends Drawable {
 	@Override
 	public void draw(Canvas canvas) {
 		// if progress = 0 ,not show
-		 if (mProgress == 0)
-		 return;
+		 if (mProgress == 0||(int)((double)((double)mProgress/(double)mMaxValue)*100)==100) {
+			 return;
+		 }
 		DrawOther(canvas);
 		if (mTextShow) {
 			DrawText(canvas);
@@ -80,6 +81,7 @@ public abstract class BaseProgress extends Drawable {
 		canvas.drawText((int)((double)((double)mProgress/(double)mMaxValue)*100) + "%", size.centerX(), baseline, mTextPaint);
 	}
 
+
 	/**
 	 * The method will add this progress to the imageview And it will in the top
 	 * of the imageview
@@ -92,7 +94,6 @@ public abstract class BaseProgress extends Drawable {
 		}
 		layer_arrays.add(this);
 		LayerDrawable levelDrawable = new LayerDrawable(layer_arrays.toArray(new Drawable[layer_arrays.size()]));
-		levelDrawable.setFilterBitmap(true);
 		mTarget.setImageDrawable(levelDrawable);
 	}
 
@@ -101,10 +102,9 @@ public abstract class BaseProgress extends Drawable {
 		if (mTarget != null) {
 			if (mTarget.getDrawable() == null) {
 				AddToImageView(false);
-			} else if (mTarget.getDrawable() != null && !mTarget.getDrawable().getClass().equals(LayerDrawable.class)
-					&& mProgress < mMaxValue) {
-				AddToImageView(true);
-
+			} else if (mProgress < mMaxValue) {
+				if (!mTarget.getDrawable().getClass().equals(LayerDrawable.class))
+					AddToImageView(true);
 			}
 		}
 		long origin = mProgress;
@@ -117,20 +117,37 @@ public abstract class BaseProgress extends Drawable {
 		}
 	}
 
-	/**
-	 * inject into the Fresco of the Simpledraweeview
-	 */
-	public void inject(@NonNull SimpleDraweeView draweeView) {
-		GenericDraweeHierarchy hierarchy = draweeView.getHierarchy();
-		hierarchy.setProgressBarImage(this);
+
+	/*
+ 	* Clear progress
+ */
+	private void ClearProgress() {
+		if (mTarget==null||mTarget.getDrawable()==null||!mTarget.getDrawable().getClass().equals(LayerDrawable.class))return;
+		LayerDrawable levelDrawable = (LayerDrawable) mTarget.getDrawable();
+		if (levelDrawable.getNumberOfLayers()==2){
+			if(!levelDrawable.getDrawable(1).equals(this)) {
+				((BaseProgress) levelDrawable.getDrawable(1)).setLevel(0);
+				((BaseProgress) levelDrawable.getDrawable(1)).inject(null);
+
+				mTarget.setImageDrawable(levelDrawable.getDrawable(0));
+			}
+		}
 	}
 
+	/*
+	注入Simpledraweeview
+	 */
+	public void injectFresco(@NonNull SimpleDraweeView DraweeView){
+		GenericDraweeHierarchy hierarchy = DraweeView.getHierarchy();
+		hierarchy.setProgressBarImage(this);
+	}
 
 	/*
 	 * inject into ImageView
 	 */
 	public void inject(@NonNull ImageView imageView) {
 		mTarget = imageView;
+		ClearProgress();
 	}
 
 	public void setTextSize(int mTextSize) {
@@ -175,5 +192,6 @@ public abstract class BaseProgress extends Drawable {
 	}
 
 	public abstract void DrawOther(Canvas canvas);
+
 
 }

@@ -17,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.ImageListActivity"/>
         <activity android:name=".ui.CircleShowActivity"/>
         <activity android:name=".ui.RectShowActivity"/>
         <activity android:name=".ui.DifferentActivity"/>

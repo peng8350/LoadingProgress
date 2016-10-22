@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import com.bumptech.glide.Glide;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.jpeng.demo.R;
-import com.lidroid.xutils.BitmapUtils;
 
 /**
  * Created by peng on 16-10-19.
@@ -24,7 +24,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button1).setOnClickListener(this);
+        findViewById(R.id.button4).setOnClickListener(this);
+        Glide.get(this).clearMemory();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Glide.get(MainActivity.this).clearDiskCache();
+            }
+        }).start();
     }
+
 
     @Override
     public void onClick(View v) {
@@ -42,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent3 = new Intent(this,DifferentActivity.class);
                 startActivity(intent3);
                 break;
+            case R.id.button4:
+                Intent intent4 = new Intent(this,ImageListActivity.class);
+                startActivity(intent4);
+                break;
         }
     }
 
@@ -50,7 +63,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         ImagePipeline pipeline = Fresco.getImagePipeline();
         pipeline.clearCaches();
-        BitmapUtils bitmapUtils = new BitmapUtils(this);
-        bitmapUtils.clearCache();
     }
 }

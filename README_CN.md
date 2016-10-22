@@ -3,7 +3,19 @@
   四大图片框架,参考了[Fresco](https://github.com/facebook/fresco)。
 # 效果图
   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  
-  
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show2.gif) </t> 
+          ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show3.gif) <br>
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show4.gif) </t> 
+        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show5.gif) </t> 
+          ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show6.gif) <br>
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show7.gif) </t> 
+        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show8.gif) </t> 
+          ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show9.gif) <br>
+   
+# 编译
+  ```Java
+    compile 'com.jpeng:LoadingProgress:1.0.5'
+  ```
   
 # 主要功能:
   1.可动态改变进度文字大小,颜色,可显性。
@@ -28,7 +40,10 @@
                             //设置你的属性...
                             
                             .build();
-  progress.inject(your SimpleDraweeView or ImageView);
+  //如果你使用的是ImageView(Glide,UIL,Picasso)
+   progress.inject(your  ImageView);
+   //如果你使用的框架是Fresco
+   progress.injectFresco(your SimpleDraweeView)
   ```
 
   <h3>接着,监听下载图片的进度变化,对于不同框架: </h3>
@@ -40,39 +55,7 @@
        * 恭喜你,你不需要监听图片加载进度的变化
        */
   ```
-  <h3> > > Glide: </h3>
-  
-  ```Java
-       Glide.with(context).using(new ProgressModelLoader(new Handler() {
-				@Override
-				public void handleMessage(Message msg) {
-					progress.setLevel(msg.arg1);
-                    progress.setMaxValue(msg.arg2);
-				}
-			})).load(info.getUrl()).into(imageView);
-       
-  ````
-  
-  <h3> > > Picasso: </h3>
-  
-  ```Java
-        SquareUtils.getPicasso(context, new SquareUtils.ProgressListener() {
 
-				@Override
-				public void update(final long current, final long total) {
-                                        //这里是子线程的关系
-					handler.post(new Runnable() {
-						@Override
-						public void run() {
-							progress.setMaxValue(total);
-							progress.setLevel((int) current);
-						}
-					});
-				}
-			}).....loadyoururl
-       
-  ```
-  
   <h3> > > UIL: </h3>
   
   ```Java
@@ -86,9 +69,16 @@
        
   ```
   
-  <h3> > >  自定义: </h3>
+  <h3> > >  其他: </h3>
   
   ```Java
+          /*
+          *如果你使用的是Glide或者Picasso 
+          *你可以参考一下我的demo如何实现监听下载进度的回调
+          ×但是在我的demo这种方式未必是对的
+          *因为在我的测试里面,发现有一些图片没能加载出来,
+          *还没发现原因。
+          */
         //在你的进度监听回调方法里面
         progress.setLevel(current);
         progress.setMaxValue(total);
@@ -111,7 +101,7 @@
   `setStyle`         变换风格,枚举CircleStyle.Fan or Ring<br>
   `setGradientColor` 设置渐变颜色
   
-  <h3>CircleProgress:</h3>
+  <h3>RectangleProgress:</h3>
    
   `setRecBottomColor`   设置长进度底部的颜色<br>
   `setRecProgressColor`  设置长进度已经加载的背景颜色<br>

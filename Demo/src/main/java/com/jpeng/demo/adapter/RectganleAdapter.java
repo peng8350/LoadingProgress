@@ -70,7 +70,7 @@ public class RectganleAdapter extends QuickAdapter<RectLoadInfo> {
 		}
 		// Builder will generate the Rectangle Progress,And you should inject
 		// your simpledraweeview
-		builder.build().inject(image);
+		builder.build().injectFresco(image);
 		// ok
 	}
 }

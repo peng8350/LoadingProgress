@@ -4,9 +4,21 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
 ###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/origin/README_CN.md)
 # Design sketch
   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  
-  
-  
-# major function:
+   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show1.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show2.gif) </t> 
+        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show3.gif) <br>
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show4.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show5.gif) </t> 
+        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show6.gif) <br>
+    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show7.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show8.gif) </t> 
+        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show9.gif) <br>
+
+# Install
+  ```Java
+    compile 'com.jpeng:LoadingProgress:1.0.5'
+  ```
+# Major Function:
   1.Can dynamically change the progress of text size, color, can visiable。
   
   2.Can change the progress and background color。
@@ -19,7 +31,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   
   Specific reference[DEMO](https://github.com/peng8350/LoadingProgress/tree/origin/Demo)
   
-# usage:
+# Usage:
 
   <h3>First of all, you must first create a CircleProgress or RectanglePropres </h3>
     
@@ -29,7 +41,10 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
                             //setting your property...
                             
                             .build();
-  progress.inject(your SimpleDraweeView or ImageView);
+   // if you use ImageView to load(Glide,UIL,Picasso)
+  progress.inject(your  ImageView);
+  //if you use Fresco
+  progress.injectFresco(your SimpleDraweeView)
   ```
 
   <h3>Then, listen to the progress of the download picture changes, for different frameworks:</h3>
@@ -41,39 +56,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
        * Congratulations, you don't need to listen to the picture to load the progress of change
        */
   ```
-  <h3> > > Glide: </h3>
-  
-  ```Java
-       Glide.with(context).using(new ProgressModelLoader(new Handler() {
-				@Override
-				public void handleMessage(Message msg) {
-					progress.setLevel(msg.arg1);
-                    progress.setMaxValue(msg.arg2);
-				}
-			})).load(info.getUrl()).into(imageView);
-       
-  ````
-  
-  <h3> > > Picasso: </h3>
-  
-  ```Java
-        SquareUtils.getPicasso(context, new SquareUtils.ProgressListener() {
 
-				@Override
-				public void update(final long current, final long total) {
-                                        //Here is the relationship between the child thread
-					handler.post(new Runnable() {
-						@Override
-						public void run() {
-							progress.setMaxValue(total);
-							progress.setLevel((int) current);
-						}
-					});
-				}
-			}).....loadyoururl
-       
-  ```
-  
   <h3> > > UIL: </h3>
   
   ```Java
@@ -87,9 +70,15 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
        
   ```
   
-  <h3> > >  Custom: </h3>
+  <h3> > >  The other: </h3>
   
   ```Java
+        /*
+        *If you are use Glide and Picasso 
+        *you can refer to my demo how to listening the Downloading
+        ×But in my demo seems not corrent
+        *Because in my test,some pictures cannot display
+        */
         //In your progress monitor callback method
         progress.setLevel(current);
         progress.setMaxValue(total);
@@ -112,7 +101,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   `setStyle`         Channge the style,enum of CircleStyle.Fan or Ring<br>
   `setGradientColor` set the color of gradient
   
-  <h3>CircleProgress:</h3>
+  <h3>RectangleProgress:</h3>
    
   `setRecBottomColor`   Set the color of the bottom of the long progress<br>
   `setRecProgressColor`  Set the background color that the long progress has been loaded<br>
@@ -120,7 +109,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   `setRecHeight`   Set the width of the long progress<br>
   `setRectProgressImage`  Use custom images to replace text to display (set up will not display text)<br>
   `setPosition` Set the position of the display indicator
-  
+   
 # Hope
   
   If you find that you can listen to Xutils2,3 or volley and other frameworks to download progress changes in the way, you can tell me, I modify the.

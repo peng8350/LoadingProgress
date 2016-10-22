@@ -36,7 +36,7 @@ public abstract class BaseBuilder<T extends BaseProgress, H extends BaseBuilder>
 		return (H) this;
 	}
 
-	public BaseProgress build() {
+	public T build() {
 		return mProgress;
 	}
 }

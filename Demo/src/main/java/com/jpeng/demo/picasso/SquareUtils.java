@@ -1,4 +1,4 @@
-package com.jpeng.progress.picasso;
+package com.jpeng.demo.picasso;
 
 
 import android.content.Context;

@@ -13,8 +13,8 @@
         fresco:placeholderImage="@mipmap/loading2"
         fresco:placeholderImageScaleType="centerCrop"
         fresco:roundedCornerRadius="5dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 
     <TextView
         android:id="@+id/item_list_title"
