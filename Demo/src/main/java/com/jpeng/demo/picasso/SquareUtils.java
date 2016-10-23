@@ -18,6 +18,7 @@ public class SquareUtils {
     static private OkHttpClient client;
 
     static public synchronized OkHttpClient getClient() {
+
         if (client == null) {
             client = new OkHttpClient.Builder()
                     //Interceptor -> cache -> NetworkInterceptor

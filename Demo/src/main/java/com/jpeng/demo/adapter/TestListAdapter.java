@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import com.jpeng.demo.R;
 import com.jpeng.demo.picasso.SquareUtils;
-import com.jpeng.progress.CircleProgress;
+import com.jpeng.progress.LevelProgress;
 import com.squareup.picasso.NetworkPolicy;
 
 import java.util.List;
@@ -58,7 +58,7 @@ public class TestListAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        final CircleProgress progress = new CircleProgress.Builder()
+        final LevelProgress progress = new LevelProgress.Builder(R.drawable.battery,context)
                 .build();
         progress.setTextColor(Color.GREEN);
         progress.inject(holder.image);

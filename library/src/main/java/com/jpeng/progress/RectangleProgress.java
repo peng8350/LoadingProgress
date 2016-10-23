@@ -22,7 +22,7 @@ public class RectangleProgress extends BaseProgress {
 
 	private Paint			mRecPaint;
 
-	private int				mRecHeight			= 5;
+	private int				mRecHeight			= 3;
 
 	private int				mRecBottomColor		= 0xaa59c8cc;
 

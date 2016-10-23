@@ -25,7 +25,8 @@ android {
 }
 
 dependencies {
-    compile 'com.jpeng:LoadingProgress:1.0.5'
+
+    compile project(':library')
     compile fileTree(include: '*.jar', dir: 'libs')
     compile 'org.xutils:xutils:3.3.36'
     //noinspection GradleCompatible

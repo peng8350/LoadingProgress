@@ -55,30 +55,31 @@ public class CIrcleAdapter extends QuickAdapter<CircleLoadInfo> {
 	 */
 	private void generateProgress(CircleLoadInfo item, SimpleDraweeView image) {
 		CircleProgress.Builder builder = new CircleProgress.Builder();
-		if (item.getStyle() != null) {
-			builder.setStyle(item.getStyle());
-		}
-		if (item.getGradient() != null) {
-			builder.setGradientColor(item.getGradient());
-		}
-		if (item.getProgressColor() != 0) {
-			builder.setProgressColor(item.getProgressColor());
-		}
-		if (item.getBottomColor() != 0) {
-			builder.setBottomColor(item.getBottomColor());
-		}
-		if (item.getStrokeWidth() != 0) {
-			builder.setCircleWidth(item.getStrokeWidth());
-		}
-		if (item.getRadius() != 0) {
-			builder.setCircleRadius(item.getRadius());
-		}
-		if (item.getTextColor() != 0) {
-			builder.setTextColor(item.getTextColor());
-		}
-		if (item.getTextSize() != 0) {
-			builder.setTextSize(item.getTextSize());
-		}
+		builder.build();
+//		if (item.getStyle() != null) {
+//			builder.setStyle(item.getStyle());
+//		}
+//		if (item.getGradient() != null) {
+//			builder.setGradientColor(item.getGradient());
+//		}
+//		if (item.getProgressColor() != 0) {
+//			builder.setProgressColor(item.getProgressColor());
+//		}
+//		if (item.getBottomColor() != 0) {
+//			builder.setBottomColor(item.getBottomColor());
+//		}
+//		if (item.getStrokeWidth() != 0) {
+//			builder.setCircleWidth(item.getStrokeWidth());
+//		}
+//		if (item.getRadius() != 0) {
+//			builder.setCircleRadius(item.getRadius());
+//		}
+//		if (item.getTextColor() != 0) {
+//			builder.setTextColor(item.getTextColor());
+//		}
+//		if (item.getTextSize() != 0) {
+//			builder.setTextSize(item.getTextSize());
+//		}
 		builder.build().injectFresco(image);
 	}
 }

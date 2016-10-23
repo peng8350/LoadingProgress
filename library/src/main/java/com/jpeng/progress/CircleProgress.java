@@ -27,10 +27,12 @@ public class CircleProgress extends BaseProgress {
 	private CircleStyle mCircleStyle	= CircleStyle.RING;
 	// The linear color
 	private int[]		mGradientColor;
+	//The Gradient Type
+	private GradientType mGradientType=GradientType.LINEAR;
+
 	/*
 	 * initCircleProgress
 	 */
-
 	@Override
 	public void initProperty() {
 		super.initProperty();
@@ -41,8 +43,8 @@ public class CircleProgress extends BaseProgress {
 		mCirclePaint.setStrokeWidth(10);
 		mCirclePaint.setStrokeJoin(Paint.Join.ROUND);
 
-		mCircleWidth = 8;
-		mCircleRadius = 40;
+		mCircleWidth = 5;
+		mCircleRadius = 30;
 	}
 
 	@Override
@@ -83,8 +85,13 @@ public class CircleProgress extends BaseProgress {
 
 		mCirclePaint.setStrokeWidth(mCircleWidth);
 		if (mGradientColor != null) {
+			if(mGradientType==GradientType.LINEAR)
 			mCirclePaint.setShader(new LinearGradient(bounds.centerX(), bounds.centerY() - mCircleRadius,
 					bounds.centerX(), bounds.centerY() + mCircleRadius, mGradientColor, null, Shader.TileMode.MIRROR));
+			else{
+				mCirclePaint.setShader(new SweepGradient(bounds.centerX(),bounds.centerY(),mGradientColor,null));
+			}
+
 			mCirclePaint.setColor(0xffffffff);
 		} else {
 			mCirclePaint.setColor(mCircleProgressColor);
@@ -106,6 +113,11 @@ public class CircleProgress extends BaseProgress {
 		public Builder setCircleRadius(int Radius) {
 			mProgress.mCircleRadius = Radius;
 
+			return this;
+		}
+
+		public Builder setGradientType(GradientType type){
+			mProgress.mGradientType =type;
 			return this;
 		}
 

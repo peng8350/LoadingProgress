@@ -23,6 +23,8 @@ public abstract class BaseProgress extends Drawable {
 	private int				mTextSize;
 	// The color of text
 	private int				mTextColor;
+	//The text typeface
+	private Typeface mTypeface;
 	// THe visiable of text
 	private boolean			mTextShow;
 	// The paint of text
@@ -32,13 +34,19 @@ public abstract class BaseProgress extends Drawable {
 	// target ImageVIew
 	private ImageView		mTarget;
 
+
 	/**
-	 * Creates a new fade drawable. The first layer is displayed with full
-	 * opacity whereas all other layers are invisible.
+	 * Creates a new layer drawable with the list of specified layers.
+	 *
 	 */
 	public BaseProgress() {
 		initProperty();
 	}
+
+	/**
+	 * Creates a new fade drawable. The first layer is displayed with full
+	 * opacity whereas all other layers are invisible.
+	 */
 
 	/*
 	 * init the default Property
@@ -128,7 +136,6 @@ public abstract class BaseProgress extends Drawable {
 			if(!levelDrawable.getDrawable(1).equals(this)) {
 				((BaseProgress) levelDrawable.getDrawable(1)).setLevel(0);
 				((BaseProgress) levelDrawable.getDrawable(1)).inject(null);
-
 				mTarget.setImageDrawable(levelDrawable.getDrawable(0));
 			}
 		}
@@ -169,6 +176,11 @@ public abstract class BaseProgress extends Drawable {
 
 	}
 
+	public void setTypeface(Typeface mTypeface) {
+		this.mTypeface = mTypeface;
+		mTextPaint.setTypeface(mTypeface);
+	}
+
 	public void setMaxValue(long value){
         this.mMaxValue = value;
     }
@@ -190,6 +202,7 @@ public abstract class BaseProgress extends Drawable {
 	public Paint getmTextPaint() {
 		return mTextPaint;
 	}
+
 
 	public abstract void DrawOther(Canvas canvas);
 

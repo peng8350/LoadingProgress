@@ -1,6 +1,7 @@
 package com.jpeng.progress.base;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 
@@ -35,6 +36,12 @@ public abstract class BaseBuilder<T extends BaseProgress, H extends BaseBuilder>
 		mProgress.setMaxValue(max);
 		return (H) this;
 	}
+
+	public H setTextType(Typeface type){
+		mProgress.setTypeface(type);
+		return (H)this;
+	}
+
 
 	public T build() {
 		return mProgress;

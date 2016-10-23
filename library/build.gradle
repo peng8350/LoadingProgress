@@ -29,12 +29,22 @@ dependencies {
 
 }
 
+task makeJar(type: Copy){
+    delete 'build/libs/loadprogress.jar'
+    from ('build/intermediates/bundles/release')
+    into('build/libs')
+    include('classes.jar')
+    rename('classes.jar','loadprogress.jar')
+}
+
+makeJar.dependsOn(build)
+
 //添加
 publish {
     userOrg = 'peng83508440'//bintray.com用户名
     groupId = 'com.jpeng'//jcenter上的路径
     artifactId = 'LoadingProgress'//项目名称
-    publishVersion = '1.0.5'//版本号
+    publishVersion = '1.0.8'//版本号
     desc = 'This is the library,you may load image with progressbar from net'
 
 }

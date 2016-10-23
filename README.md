@@ -1,23 +1,29 @@
 # LoadingProgress
  When you want to load a picture from the network, you may use the progress bar to display the progress of the picture,This project uses the Drawable injection, support Fresco, UIL, GLIDE, Picasso
 Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。<br>
-###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/origin/README_CN.md)
+###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/master/README_CN.md)
 # Design sketch
-  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/view2.gif)  
-   ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show1.gif) </t> 
-      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show2.gif) </t> 
-        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show3.gif) <br>
-    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show4.gif) </t> 
-      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show5.gif) </t> 
-        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show6.gif) <br>
-    ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show7.gif) </t> 
-      ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show8.gif) </t> 
-        ![](https://github.com/peng8350/LoadingProgress/blob/origin/art/show9.gif) <br>
+  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view2.gif)  
+  <h3>CircleProgress:</h3>
+   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/master/art/2.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) <br> 
+       <h3>RectangleProgress:</h3>
+       ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif) </t> 
+           ![](https://github.com/peng8350/LoadingProgress/blob/master/art/5.gif) </t> 
+            ![](https://github.com/peng8350/LoadingProgress/blob/master/art/6.gif) <br>
+         <h3>RotateProgress:</h3>
+        ![](https://github.com/peng8350/LoadingProgress/blob/master/art/7.gif) <br>
+            <h3>LevelProgress:</h3>
+        ![](https://github.com/peng8350/LoadingProgress/blob/master/art/8.gif) <br>
 
 # Install
+   <h3>Gradle:</h3>
   ```Java
-    compile 'com.jpeng:LoadingProgress:1.0.5'
+    compile 'com.jpeng:LoadingProgress:1.0.8'
   ```
+   <h3>Jar package:</h3>
+   [Jar package Download](https://github.com/peng8350/LoadingProgress/blob/master/loadprogress.jar)
 # Major Function:
   1.Can dynamically change the progress of text size, color, can visiable。
   
@@ -29,11 +35,11 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   
   ....
   
-  Specific reference[DEMO](https://github.com/peng8350/LoadingProgress/tree/origin/Demo)
+  Specific reference[DEMO](https://github.com/peng8350/LoadingProgress/tree/master/Demo)
   
 # Usage:
 
-  <h3>First of all, you must first create a CircleProgress or RectanglePropres </h3>
+  <h3>First of all, you must first create a CircleProgress or RectanglePropres and other </h3>
     
   ```Java
   CircleProgress progress = new CircleProgress.Builder().
@@ -41,6 +47,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
                             //setting your property...
                             
                             .build();
+   
    // if you use ImageView to load(Glide,UIL,Picasso)
   progress.inject(your  ImageView);
   //if you use Fresco
@@ -78,12 +85,40 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
         *you can refer to my demo how to listening the Downloading
         ×But in my demo seems not corrent
         *Because in my test,some pictures cannot display
+        * may be the reason is about okhttp
         */
         //In your progress monitor callback method
         progress.setLevel(current);
         progress.setMaxValue(total);
        
   ```
+  <h3> > >  LevelProgress </h3>
+   Note that the construction method which is passed levellistdrawable or level can change the resource of the LayerDrawable, or no effect.
+    Example:
+   ```Java
+    <?xml version="1.0" encoding="utf-8"?>
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@android:id/background"
+            android:drawable="@mipmap/battery_full"/>
+        <item android:id="@android:id/progress">
+            <clip
+                android:drawable="@mipmap/battery_none"
+                android:gravity="bottom"
+                android:clipOrientation="vertical"/>
+        </item>
+    </layer-list>
+   ```
+    
+   If all of the above is not what you want.,you can custom a class extends BaseProgress,Draw a picture of what you want.:
+   ```Java
+      public class CustomProgress extends BaseProgress{
+          @Override
+          public void DrawOther(Canvas canvas){
+              //Custom yourself
+          }
+      }
+   ```
  
 # Attribute description:
 
@@ -91,6 +126,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   `setTextColor` Set the progress bar in the middle of the text color<br>
   `setTextSize`  Set the size of the middle of the progress bar<br>
   `setTextShow`  Set whether the intermediate text is displayed<br>
+  `setTextType`  set the text type
   
   <h3>CircleProgress:</h3>
    
@@ -110,6 +146,12 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   `setRectProgressImage`  Use custom images to replace text to display (set up will not display text)<br>
   `setPosition` Set the position of the display indicator
    
+   <h3>RotateProgress:</h3>
+    `setSpeed`   set the speed of rotate
+    `setDirection` set the rotate direction
+    
+   <h3>LevelProgress:</h3>
+   `EnableAlpha` allow the alpha change by progress
 # Hope
   
   If you find that you can listen to Xutils2,3 or volley and other frameworks to download progress changes in the way, you can tell me, I modify the.
