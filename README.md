@@ -4,18 +4,11 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
 ###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/master/README_CN.md)
 # Design sketch
   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view2.gif)  
-  <h3>CircleProgress:</h3>
+  
    ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif) </t> 
-    ![](https://github.com/peng8350/LoadingProgress/blob/master/art/2.gif) </t> 
-      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) <br> 
-       <h3>RectangleProgress:</h3>
-       ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif) </t> 
-           ![](https://github.com/peng8350/LoadingProgress/blob/master/art/5.gif) </t> 
-            ![](https://github.com/peng8350/LoadingProgress/blob/master/art/6.gif) <br>
-         <h3>RotateProgress:</h3>
-        ![](https://github.com/peng8350/LoadingProgress/blob/master/art/7.gif) <br>
-            <h3>LevelProgress:</h3>
-        ![](https://github.com/peng8350/LoadingProgress/blob/master/art/8.gif) <br>
+    ![](https://github.com/peng8350/LoadingProgress/blob/master/art/2.gif) <br> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) </t> 
+       ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif) <br> 
 
 # Install
    <h3>Gradle:</h3>
@@ -25,7 +18,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
    <h3>Jar package:</h3>
    [Jar package Download](https://github.com/peng8350/LoadingProgress/blob/master/loadprogress.jar)
 # Major Function:
-  1.Can dynamically change the progress of text size, color, can visiable。
+  1.Can dynamically change the progress of text size, color,type,can visiable。
   
   2.Can change the progress and background color。
   
@@ -33,7 +26,9 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   
   4.There are two styles of rings。
   
-  ....
+  5.Support into ListView Cache;
+  
+  6.More style of progress
   
   Specific reference[DEMO](https://github.com/peng8350/LoadingProgress/tree/master/Demo)
   

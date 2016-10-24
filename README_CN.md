@@ -3,18 +3,11 @@
   四大图片框架,参考了[Fresco](https://github.com/facebook/fresco)。
 # 效果图
   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view2.gif)  
-    <h3>CircleProgress:</h3>
-     ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif) </t> 
-      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/2.gif) </t> 
-        ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) <br> 
-         <h3>RectangleProgress:</h3>
-         ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif) </t> 
-             ![](https://github.com/peng8350/LoadingProgress/blob/master/art/5.gif) </t> 
-              ![](https://github.com/peng8350/LoadingProgress/blob/master/art/6.gif) <br>
-           <h3>RotateProgress:</h3>
-          ![](https://github.com/peng8350/LoadingProgress/blob/master/art/7.gif) <br>
-              <h3>LevelProgress:</h3>
-          ![](https://github.com/peng8350/LoadingProgress/blob/master/art/8.gif) <br>
+  
+   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif) </t> 
+    ![](https://github.com/peng8350/LoadingProgress/blob/master/art/2.gif) <br> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) </t> 
+       ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif) <br> 
    
 # 编译
   <h3>Gradle:</h3>
@@ -32,6 +25,9 @@
   
   4.圆环有两种风格。
   
+  5.支持ListView缓存;
+    
+  6.多种不同的进度条
   ....
   
   具体可参考[DEMO](https://github.com/peng8350/LoadingProgress/tree/master/Demo)
@@ -59,6 +55,7 @@
   ```Java
        /*
        * 恭喜你,你不需要监听图片加载进度的变化
+       *
        */
   ```
 
