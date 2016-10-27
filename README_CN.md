@@ -2,32 +2,32 @@
  当你想从网络中加载一张图片时,你可能会用到进度条来显示加载图片的进度,本项目采用Drawable注入式,支持Fresco,UIL,GLIDE,Picasso
   四大图片框架,参考了[Fresco](https://github.com/facebook/fresco)。
 # 效果图
-  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view2.gif)  
+  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view.gif)
   
-   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif) </t> 
+   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif)
     ![](https://github.com/peng8350/LoadingProgress/blob/master/art/2.gif) <br> 
-      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) </t> 
-       ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif) <br> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) 
+        ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif)
    
 # 编译
   <h3>Gradle:</h3>
   ```Java
-    compile 'com.jpeng:LoadingProgress:1.0.8'
+    compile 'com.jpeng:LoadingProgress:1.1.0'
   ```
    <h3>Jar包:</h3>
    [Jar包下载](https://github.com/peng8350/LoadingProgress/blob/master/loadprogress.jar)  
 # 主要功能:
-  1.可动态改变进度文字大小,颜色,可显性。
+ - 可动态改变进度文字大小,颜色,可显性。
   
-  2.可改变进度和背景颜色。
+ - 可改变进度和背景颜色。
   
-  3.圆环支持渐变。
+ - 圆环支持渐变。
   
-  4.圆环有两种风格。
+ - 圆环有两种风格。
   
-  5.支持ListView缓存;
+ - 支持ListView缓存;
     
-  6.多种不同的进度条
+ - 多种不同的进度条
   ....
   
   具体可参考[DEMO](https://github.com/peng8350/LoadingProgress/tree/master/Demo)
@@ -50,7 +50,7 @@
 
   <h3>接着,监听下载图片的进度变化,对于不同框架: </h3>
   
-  <h3> > > Fresco: </h3>
+  <h3> Fresco: </h3>
   
   ```Java
        /*
@@ -59,7 +59,7 @@
        */
   ```
 
-  <h3> > > UIL: </h3>
+  <h3> UIL: </h3>
   
   ```Java
                
@@ -72,7 +72,7 @@
        
   ```
   
-  <h3> > >  其他: </h3>
+  <h3>其他: </h3>
   
   ```Java
           /*
@@ -87,7 +87,7 @@
         progress.setMaxValue(total);
        
   ```
-  <h3> > >  LevelProgress </h3>
+  <h3> LevelProgress </h3>
   注意,构造方法里面传的是是LayerDrawable或者levellistdrawable可以更改level的resource,不然没有效果。
   例子:
   ```Java
@@ -120,8 +120,10 @@
   `setTextColor` 设置进度条中间文字颜色<br>
   `setTextSize`  设置进度条中间文字大小<br>
   `setTextShow`  设置中间文字是否显示<br>
-  `setTextType`  设置字体类型
-  
+  `setTextType`  设置字体类型<br>
+  `setCustomText`   设置自定义文本代替原始数字变化<br>
+  `setTextXOffset`  设置离中心点X轴的距离<br>
+  `setTextYOffset`  设置离中心点Y轴的距离
   <h3>CircleProgress:</h3>
    
   `setCircleWidth`   设置圆环的宽度<br>
@@ -129,7 +131,9 @@
   `setProgressColor` 设置圆环已经加载进度中的颜色<br>
   `setBottomColor`   设置圆环未加载背景的颜色<br>
   `setStyle`         变换风格,枚举CircleStyle.Fan or Ring<br>
-  `setGradientColor` 设置渐变颜色
+  `setGradientColor` 设置渐变颜色<br>
+  `setBottomWidth`  设置底部的线条宽度<br>
+  `setFanPadding`   设置在FanStyle里圆离外部线的距离
   
   <h3>RectangleProgress:</h3>
    
@@ -141,7 +145,7 @@
   `setPosition` 设置展示指示器的位置
   
    <h3>RotateProgress:</h3>
-    `setSpeed`   设置旋转速度
+    `setSpeed`   设置旋转速度<br>
     `setDirection` 设置旋转方向
       
    <h3>LevelProgress:</h3>
@@ -151,6 +155,7 @@
   如果你发现可以监听Xutils2,3或者volley等其他框架下载进度变化的方法,可以告诉我,方便我修改。
   
   如果发现BUG,也可以在issue写下。
+  
   
 # 关于我
 

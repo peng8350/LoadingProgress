@@ -1,7 +1,7 @@
 # LoadingProgress
  When you want to load a picture from the network, you may use the progress bar to display the progress of the picture,This project uses the Drawable injection, support Fresco, UIL, GLIDE, Picasso
 Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。<br>
- 即显示微博的图标： <i class="icon-weibo icon-2x"></i>
+
 ###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/master/README_CN.md)
 # Design sketch
   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view.gif)
@@ -18,21 +18,19 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   ```
    <h3>Jar package:</h3>
    [Jar package Download](https://github.com/peng8350/LoadingProgress/blob/master/loadprogress.jar)
-# Version
-<i class="icon-renren"></i>
 
 # Major Function:
-  1.Can dynamically change the progress of text size, color,type,can visiable。
+  - Can dynamically change the progress of text size, color,type,can visiable。
   
-  2.Can change the progress and background color。
+  - Can change the progress and background color。
   
-  3.Ring support gradient。
+  - Ring support gradient。
   
-  4.There are two styles of rings。
+  - There are two styles of rings。
   
-  5.Support into ListView Cache;
+  - Support into ListView Cache;
   
-  6.More style of progress
+  - More style of progress
   
   Specific reference[DEMO](https://github.com/peng8350/LoadingProgress/tree/master/Demo)
   
@@ -55,7 +53,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
 
   <h3>Then, listen to the progress of the download picture changes, for different frameworks:</h3>
   
-  <h3> > > Fresco: </h3>
+  <h3> Fresco: </h3>
   
   ```Java
        /*
@@ -63,7 +61,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
        */
   ```
 
-  <h3> > > UIL: </h3>
+  <h3> UIL: </h3>
   
   ```Java
                
@@ -76,7 +74,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
        
   ```
   
-  <h3> > >  The other: </h3>
+  <h3> The other: </h3>
   
   ```Java
         /*
@@ -91,7 +89,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
         progress.setMaxValue(total);
        
   ```
-  <h3> > >  LevelProgress </h3>
+  <h3> LevelProgress </h3>
    Note that the construction method which is passed levellistdrawable or level can change the resource of the LayerDrawable, or no effect.
     Example:
    ```Java
@@ -125,8 +123,11 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   `setTextColor` Set the progress bar in the middle of the text color<br>
   `setTextSize`  Set the size of the middle of the progress bar<br>
   `setTextShow`  Set whether the intermediate text is displayed<br>
-  `setTextType`  set the text type
-  
+  `setTextType`  set the text type<br>
+  `setCustomText`   set the custom text replace the origin number text<br>
+  `setTextXOffset`  set the X distance to the center pointer<br>
+  `setTextYOffset`  set the Y distance to the center pointer
+     
   <h3>CircleProgress:</h3>
    
   `setCircleWidth`   Set the width of the ring<br>
@@ -134,8 +135,10 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   `setProgressColor` Set the ring has been loaded on the progress of the color<br>
   `setBottomColor`   Set the color of the ring not loaded<br>
   `setStyle`         Channge the style,enum of CircleStyle.Fan or Ring<br>
-  `setGradientColor` set the color of gradient
-  
+  `setGradientColor` set the color of gradient<br>
+  `setBottomWidth`  set the width of bottom<br>
+  `setFanPadding`   set the padding line to the circle with FanStyle 
+   
   <h3>RectangleProgress:</h3>
    
   `setRecBottomColor`   Set the color of the bottom of the long progress<br>
@@ -146,7 +149,7 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
   `setPosition` Set the position of the display indicator
    
    <h3>RotateProgress:</h3>
-    `setSpeed`   set the speed of rotate
+    `setSpeed`   set the speed of rotate<br>
     `setDirection` set the rotate direction
     
    <h3>LevelProgress:</h3>
