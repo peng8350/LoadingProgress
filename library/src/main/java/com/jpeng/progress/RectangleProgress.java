@@ -1,12 +1,9 @@
 package com.jpeng.progress;
 
+import android.graphics.*;
 import com.jpeng.progress.base.BaseBuilder;
 import com.jpeng.progress.base.BaseProgress;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.support.annotation.ColorInt;
 
 /**
@@ -28,6 +25,8 @@ public class RectangleProgress extends BaseProgress {
 
 	private int				mRecProgressColor	= 0xff59c8cc;
 
+	private int            mBottomWidth = 2;
+
 	private Bitmap			mBitmap;
 
 	private int				mPosition;
@@ -36,6 +35,7 @@ public class RectangleProgress extends BaseProgress {
 	public void initProperty() {
 		super.initProperty();
 		mRecPaint = new Paint();
+		mRecPaint.setAntiAlias(true);
 	}
 
 	@Override
@@ -50,10 +50,10 @@ public class RectangleProgress extends BaseProgress {
 	 */
 	private void drawProgress(Canvas canvas, Rect rect) {
 		mRecPaint.setColor(mRecProgressColor);
-		canvas.drawRect(rect.left + rect.width() / 10, rect.centerY() - mRecHeight,
+		canvas.drawRoundRect(new RectF(rect.left + rect.width() / 10, rect.centerY() - mRecHeight,
 				(float) ((rect.width() - rect.width() / 5) * (double) ((double) mProgress / (double) mMaxValue))
 						+ rect.width() / 10,
-				rect.centerY() + mRecHeight, mRecPaint);
+				rect.centerY() + mRecHeight),10,10, mRecPaint);
 	}
 
 	/*
@@ -61,8 +61,8 @@ public class RectangleProgress extends BaseProgress {
 	 */
 	private void drawBottom(Canvas canvas, Rect rect) {
 		mRecPaint.setColor(mRecBottomColor);
-		canvas.drawRect(rect.left + rect.width() / 10, rect.centerY() - mRecHeight / 2, rect.right - rect.width() / 10,
-				rect.centerY() + mRecHeight / 2, mRecPaint);
+		canvas.drawRect(rect.left + rect.width() / 10, rect.centerY() - mRecHeight , rect.right - rect.width() / 10,
+				rect.centerY() + mRecHeight , mRecPaint);
 	}
 
 	/*

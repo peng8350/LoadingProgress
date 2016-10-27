@@ -44,7 +44,7 @@ publish {
     userOrg = 'peng83508440'//bintray.com用户名
     groupId = 'com.jpeng'//jcenter上的路径
     artifactId = 'LoadingProgress'//项目名称
-    publishVersion = '1.0.8'//版本号
+    publishVersion = '1.1.0'//版本号
     desc = 'This is the library,you may load image with progressbar from net'
 
 }

@@ -1,6 +1,6 @@
 package com.jpeng.demo.bean;
 
-import com.jpeng.progress.CircleStyle;
+import com.jpeng.progress.enums.CircleStyle;
 
 /**
  * Created by peng on 16-10-19.

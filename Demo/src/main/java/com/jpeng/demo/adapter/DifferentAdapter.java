@@ -55,6 +55,11 @@ public class DifferentAdapter extends QuickAdapter<DifferentInfo> {
 
 	/*
 	 * change the progress
+	 * differnet way to change
+	 * type==1 is UIL
+	 * type==2 is Picasso
+	 * type ==3 is Glide
+	 * the other is not effort
 	 */
 	private void loadImage(DifferentInfo info, final CircleProgress progress, final ImageView imageView) {
 		if (info.getType() == 1) {
@@ -103,7 +108,7 @@ public class DifferentAdapter extends QuickAdapter<DifferentInfo> {
 					});
 
 				}
-			}).load(info.getUrl()).config(Bitmap.Config.ARGB_4444).placeholder(R.mipmap.loading2).into(imageView);
+			}).load(info.getUrl()).config(Bitmap.Config.ARGB_8888).placeholder(R.mipmap.loading2).into(imageView);
 		}
 		else if (info.getType() == 3) {
 			BitmapUtils Utils = new BitmapUtils(context);

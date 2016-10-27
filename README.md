@@ -1,22 +1,26 @@
 # LoadingProgress
  When you want to load a picture from the network, you may use the progress bar to display the progress of the picture,This project uses the Drawable injection, support Fresco, UIL, GLIDE, Picasso
 Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。<br>
+ 即显示微博的图标： <i class="icon-weibo icon-2x"></i>
 ###阅读中文文档 [请点击这里](https://github.com/peng8350/LoadingProgress/blob/master/README_CN.md)
 # Design sketch
-  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view1.gif)  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view2.gif)  
+  ![](https://github.com/peng8350/LoadingProgress/blob/master/art/view.gif)
   
-   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif) </t> 
+   ![](https://github.com/peng8350/LoadingProgress/blob/master/art/1.gif)
     ![](https://github.com/peng8350/LoadingProgress/blob/master/art/2.gif) <br> 
-      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif) </t> 
+      ![](https://github.com/peng8350/LoadingProgress/blob/master/art/3.gif)
        ![](https://github.com/peng8350/LoadingProgress/blob/master/art/4.gif) <br> 
 
 # Install
    <h3>Gradle:</h3>
   ```Java
-    compile 'com.jpeng:LoadingProgress:1.0.8'
+    compile 'com.jpeng:LoadingProgress:1.1.0'
   ```
    <h3>Jar package:</h3>
    [Jar package Download](https://github.com/peng8350/LoadingProgress/blob/master/loadprogress.jar)
+# Version
+<i class="icon-renren"></i>
+
 # Major Function:
   1.Can dynamically change the progress of text size, color,type,can visiable。
   

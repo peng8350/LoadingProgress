@@ -23,15 +23,15 @@ public class RotateProgress extends BaseProgress {
     private int mSpeed=3;
     //the direction of rotate
     private int mDirection = 0;
-
-    private int mAngle=0;
+    //the index add
+    private long mAngle=0;
 
 
     /*
     * if don't
     * update ,the rotate is not useful
      */
-    public int setmAngle(int mAngle) {
+    public long setmAngle(long mAngle) {
         this.mAngle = mAngle;
         invalidateSelf();
         return mAngle;
@@ -49,7 +49,6 @@ public class RotateProgress extends BaseProgress {
         int ypos = bounds.bottom - bounds.height() / 2;
 
         Matrix matrix = new Matrix();
-        // 向左旋转45度，参数为正则向右旋转
         matrix.postRotate(mDirection==LEFT?setmAngle(mAngle-mSpeed):setmAngle(mAngle+mSpeed));
         Bitmap rteBitmap = Bitmap.createBitmap(mImage,0,0,mImage.getWidth(),mImage.getHeight(),matrix,true);
 
@@ -58,22 +57,46 @@ public class RotateProgress extends BaseProgress {
 
     public static class Builder extends BaseBuilder<RotateProgress,RotateProgress.Builder>{
 
-        public Builder(@NonNull  Bitmap image){
+        public Builder(@NonNull Bitmap image){
 
             mProgress = new RotateProgress();
-
             mProgress.mImage = image;
         }
 
+        /**
+         * set Custom Image
+         * @param Image
+         * @return
+         */
+        public Builder setCustomImage(@NonNull Bitmap Image){
+            mProgress.mImage = Image;
+            return this;
+        }
+
+        /**
+         *
+         * set the Rotate Speed
+         * @param speed
+         * @return
+         */
         public Builder setSpeed(int speed){
             mProgress.mSpeed = speed;
 
             return this;
         }
 
+        /**
+         *
+         * Set the Rotate direction
+         * @param direction
+         * @return
+         */
         public Builder setDirection(int direction){
+
             mProgress.mDirection = direction;
+
             return this;
         }
+
     }
 }

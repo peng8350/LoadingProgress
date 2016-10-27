@@ -25,11 +25,15 @@ public class LevelProgress extends BaseProgress {
         int startY=bounds.height()/2-mImage.getMinimumHeight()/2;
         int width=mImage.getMinimumWidth();
         int height=mImage.getMinimumHeight();
+
         if (mEnableAlpha){
             mImage.setAlpha((int) (((int) (((double) ((double)mProgress/(double)mMaxValue))*(255*0.6)))+(255*0.4)));
         }
+
         mImage.setLevel((int) (((double)((double)mProgress/(double)mMaxValue))*10000));
+
         mImage.setBounds(startX, startY, startX+width, startY+height);
+
         mImage.draw(canvas);
     }
 
@@ -41,9 +45,13 @@ public class LevelProgress extends BaseProgress {
             mProgress.mImage  =  context.getResources().getDrawable(resid);
         }
 
+        /*
+        * Allow the alpha will change by the progress changed
+         */
         public Builder EnableAlphafilter(){
             mProgress.mEnableAlpha = true;
             return this;
         }
+
     }
 }

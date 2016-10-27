@@ -8,7 +8,7 @@ import android.widget.ListView;
 import com.jpeng.demo.R;
 import com.jpeng.demo.adapter.CIrcleAdapter;
 import com.jpeng.demo.bean.CircleLoadInfo;
-import com.jpeng.progress.CircleStyle;
+import com.jpeng.progress.enums.CircleStyle;
 
 import java.util.ArrayList;
 import java.util.List;

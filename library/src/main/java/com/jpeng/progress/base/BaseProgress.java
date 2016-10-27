@@ -23,6 +23,9 @@ public abstract class BaseProgress extends Drawable {
 	private int				mTextSize;
 	// The color of text
 	private int				mTextColor;
+	// the X offset of text
+	private int             mTextXOffset;
+	private int             mTextYOffset;
 	//The text typeface
 	private Typeface mTypeface;
 	// THe visiable of text
@@ -33,6 +36,8 @@ public abstract class BaseProgress extends Drawable {
 	protected long			mProgress;
 	// target ImageVIew
 	private ImageView		mTarget;
+	//Custom String
+	private String mCustomStr;
 
 
 	/**
@@ -57,6 +62,7 @@ public abstract class BaseProgress extends Drawable {
 		mTextColor = Color.WHITE;
 		mTextShow = true;
 		mTextPaint = new Paint();
+		mTextPaint.setAntiAlias(true);
 		mTextPaint.setColor(mTextColor);
 		mTextPaint.setTextSize(mTextSize);
 		mTextPaint.setTextAlign(Paint.Align.CENTER);
@@ -84,9 +90,7 @@ public abstract class BaseProgress extends Drawable {
 		Rect size = getBounds();
 		Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
 		int baseline = size.top + (size.bottom - size.top - fontMetrics.bottom + fontMetrics.top) / 2 - fontMetrics.top;
-		int x = size.width() / 2;
-		int y = size.height() / 2;
-		canvas.drawText((int)((double)((double)mProgress/(double)mMaxValue)*100) + "%", size.centerX(), baseline, mTextPaint);
+		canvas.drawText(mCustomStr==null?(int)((double)((double)mProgress/(double)mMaxValue)*100) + "%":mCustomStr, size.centerX()+mTextXOffset, baseline+mTextYOffset, mTextPaint);
 	}
 
 
@@ -128,17 +132,21 @@ public abstract class BaseProgress extends Drawable {
 
 	/*
  	* Clear progress
- */
+ 	* bacause listview cache
+	*/
 	private void ClearProgress() {
 		if (mTarget==null||mTarget.getDrawable()==null||!mTarget.getDrawable().getClass().equals(LayerDrawable.class))return;
-		LayerDrawable levelDrawable = (LayerDrawable) mTarget.getDrawable();
-		if (levelDrawable.getNumberOfLayers()==2){
-			if(!levelDrawable.getDrawable(1).equals(this)) {
-				((BaseProgress) levelDrawable.getDrawable(1)).setLevel(0);
-				((BaseProgress) levelDrawable.getDrawable(1)).inject(null);
-				mTarget.setImageDrawable(levelDrawable.getDrawable(0));
-			}
-		}
+			LayerDrawable levelDrawable = (LayerDrawable) mTarget.getDrawable();
+				if (levelDrawable.getNumberOfLayers()==2){
+					if(levelDrawable.getDrawable(1).getClass().isAssignableFrom(BaseProgress.class)&&!levelDrawable.getDrawable(1).equals(this)) {
+						//let the progress not show
+						((BaseProgress) levelDrawable.getDrawable(1)).setLevel(0);
+						// let the origin progress's target imageview point to null
+						((BaseProgress) levelDrawable.getDrawable(1)).inject(null);
+						//reinject new target
+						mTarget.setImageDrawable(levelDrawable.getDrawable(0));
+					}
+				}
 	}
 
 	/*
@@ -152,7 +160,7 @@ public abstract class BaseProgress extends Drawable {
 	/*
 	 * inject into ImageView
 	 */
-	public void inject(@NonNull ImageView imageView) {
+	public void inject(ImageView imageView) {
 		mTarget = imageView;
 		ClearProgress();
 	}
@@ -173,12 +181,23 @@ public abstract class BaseProgress extends Drawable {
 
 	public void setTextShow(boolean mTextShow) {
 		this.mTextShow = mTextShow;
-
 	}
 
 	public void setTypeface(Typeface mTypeface) {
 		this.mTypeface = mTypeface;
 		mTextPaint.setTypeface(mTypeface);
+	}
+
+	public void setCustomText(String text){
+		mCustomStr = text;
+	}
+
+	public void setTextXOffset(int offset){
+		mTextXOffset = offset;
+	}
+
+	public void setTextYOffset(int offset){
+		mTextYOffset= offset;
 	}
 
 	public void setMaxValue(long value){
@@ -187,6 +206,7 @@ public abstract class BaseProgress extends Drawable {
 
 	@Override
 	public void setAlpha(int alpha) {
+
 	}
 
 	@Override
