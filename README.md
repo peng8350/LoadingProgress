@@ -164,6 +164,6 @@ Four picture frames,Dumplites of [Fresco](https://github.com/facebook/fresco)。
 
   a junior student still study at School, love programming, especially Android
   
-  Email:83508440@qq.com
+  Email:peng8350@gmail.com
 
   
